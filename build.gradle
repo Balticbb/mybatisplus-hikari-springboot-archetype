@@ -1,0 +1,53 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "http://jack.zsdyzb.com:8081/repository/maven-public/"}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.jack'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.7
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+	maven { url "http://jack.zsdyzb.com:8081/repository/maven-public/"}
+}
+
+
+dependencies {
+//	compile('org.springframework.boot:spring-boot-starter-activemq')
+//	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	compile('org.springframework.boot:spring-boot-starter-freemarker')
+//	compile('org.springframework.kafka:spring-kafka')
+//	compile('org.springframework.boot:spring-boot-starter-mail')
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+//    数据库配置 start
+	compile('com.baomidou:mybatis-plus:2.1.5')
+    compile('com.zaxxer:HikariCP-java7:2.4.13')
+    compile('com.baomidou:mybatisplus-spring-boot-starter:1.0.5'){
+        exclude module: 'tomcat-jdbc'
+    }
+    compile 'mysql:mysql-connector-java:5.1.34'
+//    数据库配置 结束
+
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
