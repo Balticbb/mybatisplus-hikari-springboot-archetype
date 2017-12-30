@@ -25,9 +25,9 @@ import java.util.List;
 @Service
 public class HelloService extends ServiceImpl<UserMapper,User>{
 
-    public Page<User> selectUserPage(Page<User> page, String state) {
-        page.setRecords(baseMapper.selectUserList(page,state));
-        return page;
-    }
+//    public Page<User> selectUserPage(Page<User> page, String state) {
+//        page.setRecords(baseMapper.selectUserList(page,state));
+//        return page;
+//    }
 
 }

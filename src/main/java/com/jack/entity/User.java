@@ -3,7 +3,9 @@ package com.jack.entity;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.KeySequence;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 
@@ -22,18 +24,19 @@ import java.io.Serializable;
 public class User extends Model<User> implements Serializable{
     private static final long serialVersionUID = 7814563711667228005L;
 
-    private Integer id;
+    @TableId(value = "id",type = IdType.ID_WORKER)
+    private Long id;
     private String name;
     private Integer age;
 
-    @TableField(exist = false)
+//    @TableField(exist = false)
     private Integer sex;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

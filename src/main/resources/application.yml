@@ -1,7 +1,23 @@
-
 spring:
   profiles:
     active: dev
+  aop:
+    proxy-target-class: true
+  rabbitmq:
+    host: 120.78.179.251
+    username: admin
+    password: admin
+    virtual-host: u2licai
+    listener:
+      simple:
+        acknowledge-mode: auto
+#    publisher-confirms: true
+  data:
+    mongodb:
+      host: 120.78.179.251
+      port: 27017
+      database: mongodb_test
+
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: test-u2
@@ -42,7 +58,8 @@ mybatis-plus:
     
 #logging
 logging:
-  level: debug
+  level:
+    root: debug
 server:
   port: 3333
 

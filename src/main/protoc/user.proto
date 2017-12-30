@@ -1,0 +1,18 @@
+syntax="proto3";
+option java_package="com.jack.io";
+option java_outer_classname="UserProtos";
+option optimize_for=CODE_SIZE;
+
+message RequestUser{
+    int32 id=1;
+    string name=2;
+    int32 age=3;
+}
+message ResponseUser{
+    int32 id=1;
+    string name=2;
+    int32 age=3;
+}
+service SearchService {
+    rpc Search (RequestUser) returns (ResponseUser);
+}
